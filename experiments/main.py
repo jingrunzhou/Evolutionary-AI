@@ -2,6 +2,14 @@
 主实验脚本
 控制整个进化实验流程
 """
+import sys
+from pathlib import Path
+
+# 添加项目根目录到Python路径
+sys.path.append(str(Path(__file__).parent.parent))
+
+
+
 from core.evolution import EvolutionEngine
 from envs.challenges.maze import MazeEnvironment
 from utils.metrics import FitnessEvaluator

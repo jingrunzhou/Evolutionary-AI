@@ -43,5 +43,8 @@ class BaseAgent:
             self.brain.layers[0]['weights'].shape[0],
             self.brain.layers[-1]['weights'].shape[1]
         )
-        new_agent.brain.set_genome(self.brain.get_genome())
+        # 直接复制每层参数
+        for i, layer in enumerate(self.brain.layers):
+            new_agent.brain.layers[i]['weights'] = layer['weights'].copy()
+            new_agent.brain.layers[i]['biases'] = layer['biases'].copy()
         return new_agent
